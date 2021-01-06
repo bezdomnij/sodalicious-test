@@ -1,4 +1,4 @@
-package com.codecool.cocktails.cocktailsTest;
+package com.codecool.cocktails;
 
 import static org.junit.Assert.assertTrue;
 
