@@ -2,19 +2,24 @@ package com.codecool.cocktails;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
+import com.codecool.cocktails.pages.LoginPage;
+import com.codecool.cocktails.pages.MainPage;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebElement;
 
-/**
- * Unit test for simple App.
- */
+
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
+    static LoginPage loginPage = new LoginPage();
+    static MainPage mainPage = new MainPage();
+
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void testLogin(){
+        WebElement element = loginPage.login();
+        //Assertions.assertNotNull(element);
+        WebElement logout = mainPage.getLogout();
+        Assertions.assertNotNull(logout);
     }
+
 }
