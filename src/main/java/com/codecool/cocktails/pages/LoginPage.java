@@ -22,19 +22,15 @@ public class LoginPage {
     @FindBy(xpath = "//div[contains(text(),'Log in')]")
     private WebElement submit;
 
-    @FindBy(xpath = "//button[contains(text(),'Logout')]")
-    private WebElement logout;
-
     public LoginPage() {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 20), this);
     }
 
-    public WebElement login(){
+    public void login(String emailAddress, String password){
         driver.get("http://localhost:3000/login");
         driver.manage().window().maximize();
-        userName.sendKeys("d@d.com");
-        password.sendKeys("d");
+        userName.sendKeys(emailAddress);
+        this.password.sendKeys(password);
         submit.click();
-        return logout;
     }
 }

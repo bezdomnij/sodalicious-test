@@ -19,7 +19,19 @@ public class MainPage {
     @FindBy(xpath = "//button[contains(text(),'Logout')]")
     private WebElement logout;
 
+    @FindBy(xpath = "//p[@class='logged-in-text']")
+    private WebElement userName;
+
     public WebElement getLogout() {
         return logout;
+    }
+
+    public String getUserName(){
+        String text = userName.getText();
+        return text.replace("You are logged in as: ", "");
+    }
+
+    public void logOut(){
+        logout.click();
     }
 }
